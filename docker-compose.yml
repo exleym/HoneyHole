@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  api:
+    build: api/
+    ports:
+      - 8000:8000
+#    depends_on:
+#      - db
+#  db:
+#    image: postgres:latest
+#    ports:
+#      - 5432:5432
+#    environment:
+#      - POSTGRES_USER=honeyhole
+#      - POSTGRES_PASSWORD=honeyhole
+#      - POSTGRES_DB=honeyhole
+  web:
+    build: fishui/
+    volumes:
+      - ~/data/billy-bigmouth:/media/static
+    ports:
+      - 80:80
+    environment:
+      env: prod
